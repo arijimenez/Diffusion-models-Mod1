@@ -81,7 +81,13 @@ class InpaintDataset(data.Dataset):
             regular_mask = bbox2mask(self.image_size, random_bbox())
             irregular_mask = brush_stroke_mask(self.image_size, )
             mask = regular_mask | irregular_mask
+        elif self.mask_mode=='mountain':
+            regular_mask = bbox2mask(self.image_size, random_bbox())
+            irregular_mask = brush_stroke_mask(self.image_size, )
+            mask = regular_mask | irregular_mask
+
         elif self.mask_mode == 'file':
+        
             pass
         else:
             raise NotImplementedError(
